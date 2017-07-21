@@ -45,12 +45,12 @@ var guessesLeft;
 */
 
 /*If App letter does not match:
-  1. Check if the Guesses Left value = 0
-      If value is 0, then add +1 on Losses
-      If value is not 0, then add selected letter at Your Guesses so far
-  1. Subtract a value on Guesses Left
-  2. Add selected letter in Your Guesses so far
-  3. 
+  1.0  Check if the Guesses Left value = 0
+  1.1. If value is 0, then add +1 on Losses
+  1.2  If value is not 0, then:
+         add selected letter in Your Guesses so far
+         subtract a value on Guesses Left
+ 
 */
 
 //
