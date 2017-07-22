@@ -25,7 +25,7 @@ var appLetter;
 var userLetter;
 //This is the letter options in an array
 //code reference source: https://www.w3schools.com/js/js_arrays.asp
-var letterSelection = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+var letterOptions = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 //Guesses so far in an empty array
 var guesses = [];
 //Guesses left
@@ -34,8 +34,14 @@ var guessesLeft;
 
 //PSEUDO CODE
 //1. App randomly picks a letter (do not show)
+//code reference source: https://www.w3schools.com/js/js_functions.asp
 //code reference source: https://www.w3schools.com/jsref/jsref_random.asp
-function aapp = letterSelection[Math.floor(Math.random() * letterSelection.length)];
+app = letterOptions[Math.floor(Math.random() * letterOptions.length)];
+//code reference source: https://www.w3schools.com/js/js_output.asp
+  console.log('App Selection: ' + app);
+
+
+
 
 
 //2. User selects a letter (to guess app randomly selected letter)
