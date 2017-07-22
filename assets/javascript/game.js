@@ -54,6 +54,7 @@ document.onkeyup = function(event) {
   console.log('User Selection: ' + userLetter); 
 
 //3. Check if App letter matches User selected letter
+  function matchLetters() {
 
 //If App letter match:
   if (appLetter === userLetter) {
@@ -97,5 +98,8 @@ document.onkeyup = function(event) {
     console.log('App Selection: ' + appLetter);
     }
   }
+  matchLetters();
+}
+
 
 
