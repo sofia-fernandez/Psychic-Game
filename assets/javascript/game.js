@@ -29,51 +29,59 @@ var letterOptions = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o'
 //Guesses so far in an empty array
 var guesses = [];
 //Guesses left
-var guessesLeft;
+var guessesLeft = 9;
 //Wins
-var wins;
+var wins = 0;
 //Losses;
-var losses;
+var losses = 0;
 
 
 //PSEUDO CODE ==================================
 //1. App randomly picks a letter (do not show)
 //code reference source: https://www.w3schools.com/js/js_functions.asp
 //code reference source: https://www.w3schools.com/jsref/jsref_random.asp
-app = letterOptions[Math.floor(Math.random() * letterOptions.length)];
-
+function appSelection() {
+ appLetter = letterOptions[Math.floor(Math.random() * letterOptions.length)];
+}
+appSelection();
 //code reference source: https://www.w3schools.com/js/js_output.asp
-  console.log('App Selection: ' + app);
+  console.log('App Selection: ' + appLetter);
 
 //2. User selects a letter (to guess app randomly selected letter)
+//code reference source: https://www.w3schools.com/jsref/event_onkeyup.asp
 document.onkeyup = function(event) {
   userLetter = event.key;
   console.log('User Selection: ' + userLetter); 
 
 //3. Check if App letter matches User selected letter
-  if (userLetter === app) {
-    alert('you win!');
+
+//If App letter match:
+  if (appLetter === userLetter) {
+// 1. Add point to Wins.
+//code reference source: https://www.w3schools.com/jsref/met_document_queryselector.asp
+    wins++;
+    document.querySelector('#wins').innerHTML = 'Wins: ' + wins;
+// 2. Reset Guesses Left to 9
+    guessesLeft = 9;
+    document.querySelector('#guess_Left').innerHTML = 'Guesses Left: ' + guessesLeft;
+// 3. Reset Your Guesses so far
+    guesses = [];
+// 4. Have App select another letter
+    appSelection();
+    console.log('App Selection: ' + appLetter);
   }
 }
 
+//If App letter does not match:
+  if (appLetter !== userLetter) {
+//  1.0  Check if the Guesses Left value = 0
+//  1.1. If value is 0, then add +1 on Losses
+//  1.2  If value is not 0, then:
+//         add selected letter in Your Guesses so far
+//         subtract a value on Guesses Left
+  }
 
-   
-
-
-
-/*If App letter match:
-  1. Add point to Win.
-  2. Reset Guesses Left to 9
-  3. Reset Your Guesses so far
-*/
-
-/*If App letter does not match:
-  1.0  Check if the Guesses Left value = 0
-  1.1. If value is 0, then add +1 on Losses
-  1.2  If value is not 0, then:
-         add selected letter in Your Guesses so far
-         subtract a value on Guesses Left
  
-*/
+
 
 //
