@@ -66,18 +66,41 @@ document.onkeyup = function(event) {
     document.querySelector('#guess_Left').innerHTML = 'Guesses Left: ' + guessesLeft;
 // 3. Reset Your Guesses so far
     guesses = [];
+     document.querySelector('#guesses_so_far').innerHTML = 'Your Guesses so far: ';
 // 4. Have App select another letter
     appSelection();
     console.log('App Selection: ' + appLetter);
   }
-}
 
-//If App letter does not match:
-  if (appLetter !== userLetter) {
-//  1.0  Check if the Guesses Left value = 0
-//  1.1. If value is 0, then add +1 on Losses
-//  1.2  If value is not 0, then:
-//         add selected letter in Your Guesses so far
+//If app letter does not match and guesses left is more than 0:
+  if (appLetter !== userLetter && guessesLeft > 0) {
+// 1. Remove value on Guesses Left
+   guessesLeft--;
+   document.querySelector('#guess_Left').innerHTML = 'Guesses Left: ' + guessesLeft;
+// 2. Add selected letter in Your Guesses so far  
+   guesses.push(userLetter);
+     document.querySelector('#guesses_so_far').innerHTML = 'Your Guesses so far: ' + guesses;
+
+  }
+//If App letter does not match and guesses left = 0:
+  if (appLetter !== userLetter && guessesLeft === 0) {
+// 1. Then add +1 on Losses
+      losses++;
+      document.querySelector('#losses').innerHTML = 'Losses: ' + losses;
+// 2. Reset Guesses Left to 9
+    guessesLeft = 9;
+// 3. Reset Your Guesses so far
+    guesses = [];
+    document.querySelector('#guesses_so_far').innerHTML = 'Your Guesses so far: ';
+// 4. Have App select another letter
+    appSelection();
+    console.log('App Selection: ' + appLetter);
+  }
+
+//  3. If value is not 0, then:
+
+
+
 //         subtract a value on Guesses Left
   }
 
