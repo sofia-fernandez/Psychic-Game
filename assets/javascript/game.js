@@ -30,23 +30,36 @@ var letterOptions = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o'
 var guesses = [];
 //Guesses left
 var guessesLeft;
+//Wins
+var wins;
+//Losses;
+var losses;
 
 
-//PSEUDO CODE
+//PSEUDO CODE ==================================
 //1. App randomly picks a letter (do not show)
 //code reference source: https://www.w3schools.com/js/js_functions.asp
 //code reference source: https://www.w3schools.com/jsref/jsref_random.asp
 app = letterOptions[Math.floor(Math.random() * letterOptions.length)];
+
 //code reference source: https://www.w3schools.com/js/js_output.asp
   console.log('App Selection: ' + app);
 
-
-
-
-
 //2. User selects a letter (to guess app randomly selected letter)
+document.onkeyup = function(event) {
+  userLetter = event.key;
+  console.log('User Selection: ' + userLetter); 
 
 //3. Check if App letter matches User selected letter
+  if (userLetter === app) {
+    alert('you win!');
+  }
+}
+
+
+   
+
+
 
 /*If App letter match:
   1. Add point to Win.
