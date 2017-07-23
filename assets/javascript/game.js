@@ -53,6 +53,19 @@ document.onkeyup = function(event) {
   userLetter = event.key;
   console.log('User Selection: ' + userLetter); 
 
+/*Future Release: As a user, I want to be notified if I selected a letter
+that I have already selected before, so that I don't waste my "Guesses Left" quota
+for the same letter selected. */
+
+//===============================================
+//If the user selected letter is not listed in the array, do not show.
+for (i = 0; i < letterOptions.length; i++) {
+    if (userLetter === letterOptions[i]) {
+      matchLetters();
+    }
+  }
+
+
 //3. Check if App letter matches User selected letter
   function matchLetters() {
 
@@ -74,13 +87,13 @@ document.onkeyup = function(event) {
   }
 
 //If app letter does not match and guesses left is more than 0:
-    else if (appLetter !== userLetter && guessesLeft > 0) {
+  else if (appLetter !== userLetter && guessesLeft > 0) {
 // 1. Remove value on Guesses Left
-      guessesLeft--;
-      document.querySelector('#guess_Left').innerHTML = 'Guesses Left: ' + guessesLeft;
+    guessesLeft--;
+    document.querySelector('#guess_Left').innerHTML = 'Guesses Left: ' + guessesLeft;
 // 2. Add selected letter in Your Guesses so far  
-      guesses.push(userLetter);
-      document.querySelector('#guesses_so_far').innerHTML = 'Your Guesses so far: ' + guesses;
+    guesses.push(userLetter);
+    document.querySelector('#guesses_so_far').innerHTML = 'Your Guesses so far: ' + guesses;
 
   }
 //If App letter does not match and guesses left = 0:
@@ -98,8 +111,8 @@ document.onkeyup = function(event) {
     console.log('App Selection: ' + appLetter);
     }
   }
-  matchLetters();
-}
+//  matchLetters();
 
+}
 
 
